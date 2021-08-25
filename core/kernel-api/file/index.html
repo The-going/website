@@ -1,0 +1,3729 @@
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.87.0" />
+    <meta name="description" content="Xenomai 4 project">
+<meta name="author" content="Philippe Gerum &lt;rpm@xenomai.org&gt;">
+
+    <link rel="icon" href="/website/images/favicon.png" type="image/png">
+
+    <title>File description :: Xenomai 4</title>
+
+    
+    <link href="/website/css/nucleus.css?1629923932" rel="stylesheet">
+    <link href="/website/css/fontawesome-all.min.css?1629923932" rel="stylesheet">
+    <link href="/website/css/hybrid.css?1629923932" rel="stylesheet">
+    <link href="/website/css/featherlight.min.css?1629923932" rel="stylesheet">
+    <link href="/website/css/perfect-scrollbar.min.css?1629923932" rel="stylesheet">
+    <link href="/website/css/auto-complete.css?1629923932" rel="stylesheet">
+    <link href="/website/css/atom-one-dark-reasonable.css?1629923932" rel="stylesheet">
+    <link href="/website/css/theme.css?1629923932" rel="stylesheet">
+    <link href="/website/css/tabs.css?1629923932" rel="stylesheet">
+    <link href="/website/css/hugo-theme.css?1629923932" rel="stylesheet">
+    
+    <link href="/website/css/theme-evl.css?1629923932" rel="stylesheet">
+    
+    
+
+    <script src="/website/js/jquery-3.3.1.min.js?1629923932"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+        :not(pre) > code + span.copy-to-clipboard {
+            display: none;
+        }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/website/core/kernel-api/file/">
+    <nav id="sidebar" class="">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a href="/"><img src="/images/xenomai-logo.png"></a>
+
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="Search...">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/website/js/lunr.min.js?1629923932"></script>
+<script type="text/javascript" src="/website/js/auto-complete.js?1629923932"></script>
+<script type="text/javascript">
+    
+        var baseurl = "https:\/\/the-going.github.io\/website\/";
+    
+</script>
+<script type="text/javascript" src="/website/js/search.js?1629923932"></script>
+
+    
+  </div>
+  
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/website/overview/" title="Overview" class="dd-item
+        
+        
+        
+        ">
+      <a href="/website/overview/">
+          &#8226; Get Started
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/website/core/" title="The EVL core" class="dd-item
+        parent
+        
+        
+        ">
+      <a href="/website/core/">
+          &#8226; Real-time core
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/website/core/build-steps/" title="Building EVL" class="dd-item ">
+        <a href="/website/core/build-steps/">
+        Building EVL
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/website/core/runtime-settings/" title="Runtime configuration" class="dd-item ">
+        <a href="/website/core/runtime-settings/">
+        Runtime settings
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/website/core/testing/" title="Testing the installation" class="dd-item ">
+        <a href="/website/core/testing/">
+        Running tests
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/website/core/commands/" title="" class="dd-item ">
+        <a href="/website/core/commands/">
+        Commands
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/website/core/benchmarks/" title="Running benchmarks" class="dd-item
+        
+        
+        
+        ">
+      <a href="/website/core/benchmarks/">
+          Benchmarking
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/website/core/caveat/" title="" class="dd-item ">
+        <a href="/website/core/caveat/">
+        Caveat
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/website/core/user-api/" title="Using libevl" class="dd-item
+        
+        
+        
+        ">
+      <a href="/website/core/user-api/">
+          &#9702; Application interface
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/website/core/user-api/function_index/" title="libevl function index" class="dd-item
+        
+        
+        
+        ">
+      <a href="/website/core/user-api/function_index/">
+          Function index
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/website/core/user-api/init/" title="" class="dd-item
+        
+        
+        
+        ">
+      <a href="/website/core/user-api/init/">
+          Initialization
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/website/core/user-api/thread/" title="" class="dd-item
+        
+        
+        
+        ">
+      <a href="/website/core/user-api/thread/">
+          Thread
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/website/core/user-api/mutex/" title="Mutex" class="dd-item
+        
+        
+        
+        ">
+      <a href="/website/core/user-api/mutex/">
+          Mutex
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/website/core/user-api/event/" title="" class="dd-item
+        
+        
+        
+        ">
+      <a href="/website/core/user-api/event/">
+          Event
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/website/core/user-api/flags/" title="" class="dd-item
+        
+        
+        
+        ">
+      <a href="/website/core/user-api/flags/">
+          Flags
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/website/core/user-api/semaphore/" title="Semaphore" class="dd-item
+        
+        
+        
+        ">
+      <a href="/website/core/user-api/semaphore/">
+          Semaphore
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/website/core/user-api/clock/" title="" class="dd-item
+        
+        
+        
+        ">
+      <a href="/website/core/user-api/clock/">
+          Clocks
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/website/core/user-api/timer/" title="" class="dd-item
+        
+        
+        
+        ">
+      <a href="/website/core/user-api/timer/">
+          Timer(fd)
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/website/core/user-api/observable/" title="Observable" class="dd-item
+        
+        
+        
+        ">
+      <a href="/website/core/user-api/observable/">
+          Observable
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/website/core/user-api/xbuf/" title="" class="dd-item
+        
+        
+        
+        ">
+      <a href="/website/core/user-api/xbuf/">
+          Cross-buffer
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/website/core/user-api/proxy/" title="File proxy" class="dd-item
+        
+        
+        
+        ">
+      <a href="/website/core/user-api/proxy/">
+          File proxy
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/website/core/user-api/poll/" title="Polling file descriptors" class="dd-item
+        
+        
+        
+        ">
+      <a href="/website/core/user-api/poll/">
+          Polling file descriptors
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/website/core/user-api/io/" title="Out-of-band I/O services" class="dd-item
+        
+        
+        
+        ">
+      <a href="/website/core/user-api/io/">
+          Out-of-band I/O services
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/website/core/user-api/scheduling/" title="" class="dd-item
+        
+        
+        
+        ">
+      <a href="/website/core/user-api/scheduling/">
+          Scheduling
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/website/core/user-api/heap/" title="" class="dd-item
+        
+        
+        
+        ">
+      <a href="/website/core/user-api/heap/">
+          Memory heap
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/website/core/user-api/tube/" title="" class="dd-item
+        
+        
+        
+        ">
+      <a href="/website/core/user-api/tube/">
+          Tube
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/website/core/user-api/misc/" title="Miscellanea" class="dd-item
+        
+        
+        
+        ">
+      <a href="/website/core/user-api/misc/">
+          Misc. services
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/website/core/user-api/api-revs/" title="API revisions" class="dd-item ">
+        <a href="/website/core/user-api/api-revs/">
+        API revisions
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/website/core/oob-drivers/" title="Real-time I/O drivers" class="dd-item
+        
+        
+        
+        ">
+      <a href="/website/core/oob-drivers/">
+          &#9702; Real-time I/O drivers
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/website/core/oob-drivers/dma/" title="DMA" class="dd-item ">
+        <a href="/website/core/oob-drivers/dma/">
+        DMA
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/website/core/oob-drivers/spi/" title="SPI" class="dd-item ">
+        <a href="/website/core/oob-drivers/spi/">
+        SPI
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/website/core/oob-drivers/gpio/" title="GPIO" class="dd-item ">
+        <a href="/website/core/oob-drivers/gpio/">
+        GPIO
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/website/core/kernel-api/" title="Writing drivers" class="dd-item
+        parent
+        
+        
+        ">
+      <a href="/website/core/kernel-api/">
+          &#9702; Writing drivers
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/website/core/kernel-api/function_index/" title="Kernel function index" class="dd-item
+        
+        
+        
+        ">
+      <a href="/website/core/kernel-api/function_index/">
+          Function index
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/website/core/kernel-api/file/" title="File description" class="dd-item
+        parent
+        active
+        
+        ">
+      <a href="/website/core/kernel-api/file/">
+          File description
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/website/core/kernel-api/socket/" title="Socket interface" class="dd-item
+        
+        
+        
+        ">
+      <a href="/website/core/kernel-api/socket/">
+          Socket interface
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/website/core/kernel-api/kthread/" title="Kernel thread" class="dd-item
+        
+        
+        
+        ">
+      <a href="/website/core/kernel-api/kthread/">
+          Kernel thread
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/website/core/kernel-api/wait/" title="Wait queue" class="dd-item
+        
+        
+        
+        ">
+      <a href="/website/core/kernel-api/wait/">
+          Wait queue
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/website/core/kernel-api/mutex/" title="Kernel mutex" class="dd-item
+        
+        
+        
+        ">
+      <a href="/website/core/kernel-api/mutex/">
+          Kernel mutex
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/website/core/kernel-api/semaphore/" title="Kernel semaphore" class="dd-item
+        
+        
+        
+        ">
+      <a href="/website/core/kernel-api/semaphore/">
+          Kernel semaphore
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/website/core/kernel-api/flag/" title="Kernel flag" class="dd-item
+        
+        
+        
+        ">
+      <a href="/website/core/kernel-api/flag/">
+          Kernel flag
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/website/core/kernel-api/spinlock/" title="EVL Spinlock" class="dd-item
+        
+        
+        
+        ">
+      <a href="/website/core/kernel-api/spinlock/">
+          EVL Spinlock
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/website/core/kernel-api/clock/" title="" class="dd-item
+        
+        
+        
+        ">
+      <a href="/website/core/kernel-api/clock/">
+          Clock device
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/website/core/kernel-api/timer/" title="Timer" class="dd-item
+        
+        
+        
+        ">
+      <a href="/website/core/kernel-api/timer/">
+          Timer
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/website/core/kernel-api/xbuf/" title="Cross-buffer access" class="dd-item
+        
+        
+        
+        ">
+      <a href="/website/core/kernel-api/xbuf/">
+          Cross-buffer access
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/website/core/kernel-api/interrupts/" title="Managing IRQs" class="dd-item
+        
+        
+        
+        ">
+      <a href="/website/core/kernel-api/interrupts/">
+          Managing IRQs
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/website/core/kernel-api/stax/" title="Stage exclusion lock" class="dd-item
+        
+        
+        
+        ">
+      <a href="/website/core/kernel-api/stax/">
+          Stage exclusion lock
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/website/core/under-the-hood/" title="Under the hood" class="dd-item
+        
+        
+        
+        ">
+      <a href="/website/core/under-the-hood/">
+          &#9702; Under the hood
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/website/core/under-the-hood/abi/" title="The EVL ABI" class="dd-item ">
+        <a href="/website/core/under-the-hood/abi/">
+        ABI revisions
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/website/core/abi-revs/" title="ABI revisions" class="dd-item ">
+        <a href="/website/core/abi-revs/">
+        ABI revisions
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/website/dovetail/" title="Dovetail interface" class="dd-item
+        
+        
+        
+        ">
+      <a href="/website/dovetail/">
+          &#8226; Dovetail interface
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/website/dovetail/pipeline/" title="Interrupt pipeline" class="dd-item
+        
+        
+        
+        ">
+      <a href="/website/dovetail/pipeline/">
+          &#9702; Interrupt pipeline
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/website/dovetail/pipeline/irq_handling/" title="IRQ handling" class="dd-item ">
+        <a href="/website/dovetail/pipeline/irq_handling/">
+        IRQ handling
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/website/dovetail/pipeline/synthetic/" title="Synthetic IRQs" class="dd-item ">
+        <a href="/website/dovetail/pipeline/synthetic/">
+        Synthetic IRQs
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/website/dovetail/pipeline/pipeline_inject/" title="IRQ injection" class="dd-item ">
+        <a href="/website/dovetail/pipeline/pipeline_inject/">
+        IRQ injection
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/website/dovetail/pipeline/interrupt_protection/" title="Interrupt protection" class="dd-item ">
+        <a href="/website/dovetail/pipeline/interrupt_protection/">
+        Interrupt protection
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/website/dovetail/pipeline/stage_push/" title="Installing the out-of-band stage" class="dd-item ">
+        <a href="/website/dovetail/pipeline/stage_push/">
+        OOB stage installation
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/website/dovetail/pipeline/stage_escalation/" title="Stage escalation" class="dd-item ">
+        <a href="/website/dovetail/pipeline/stage_escalation/">
+        Stage escalation
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/website/dovetail/pipeline/locking/" title="Locking" class="dd-item ">
+        <a href="/website/dovetail/pipeline/locking/">
+        Locking
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/website/dovetail/porting/" title="Porting Dovetail" class="dd-item
+        
+        
+        
+        ">
+      <a href="/website/dovetail/porting/">
+          &#9702; Porting Dovetail
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/website/dovetail/porting/prerequisites/" title="Prerequisites" class="dd-item ">
+        <a href="/website/dovetail/porting/prerequisites/">
+        Prerequisites
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/website/dovetail/porting/irqflow/" title="Interrupt flow" class="dd-item ">
+        <a href="/website/dovetail/porting/irqflow/">
+        Interrupt flow
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/website/dovetail/porting/atomic/" title="Atomic operations" class="dd-item ">
+        <a href="/website/dovetail/porting/atomic/">
+        Atomic operations
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/website/dovetail/porting/arch/" title="Architecture-specific bits" class="dd-item ">
+        <a href="/website/dovetail/porting/arch/">
+        Architecture bits
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/website/dovetail/porting/timer/" title="Tick devices" class="dd-item ">
+        <a href="/website/dovetail/porting/timer/">
+        Tick devices
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/website/dovetail/porting/clocksource/" title="Reading clock sources" class="dd-item ">
+        <a href="/website/dovetail/porting/clocksource/">
+        Clock sources
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/website/dovetail/porting/syscall/" title="Syscall path" class="dd-item ">
+        <a href="/website/dovetail/porting/syscall/">
+        Syscall path
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/website/dovetail/porting/rawprintk/" title="Raw printk support" class="dd-item ">
+        <a href="/website/dovetail/porting/rawprintk/">
+        Serial debugging
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/website/dovetail/porting/misc/" title="Misc" class="dd-item ">
+        <a href="/website/dovetail/porting/misc/">
+        Misc
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/website/dovetail/porting/devnotes/" title="Developer&#39;s Notes" class="dd-item ">
+        <a href="/website/dovetail/porting/devnotes/">
+        Developer&#39;s Notes
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/website/dovetail/altsched/" title="Alternate scheduling" class="dd-item ">
+        <a href="/website/dovetail/altsched/">
+        Alternate scheduling
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/website/dovetail/files/" title="File tracking" class="dd-item ">
+        <a href="/website/dovetail/files/">
+        File tracking
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/website/dovetail/sockets/" title="Socket handling" class="dd-item ">
+        <a href="/website/dovetail/sockets/">
+        Socket handling
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/website/dovetail/rulesofthumb/" title="Rules Of Thumb" class="dd-item ">
+        <a href="/website/dovetail/rulesofthumb/">
+        Rules Of Thumb
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/website/ports/" title="Status of EVL ports" class="dd-item
+        
+        
+        
+        ">
+      <a href="/website/ports/">
+          &#8226; Ports
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/website/contributing/" title="Contributing to Xenomai 4" class="dd-item
+        
+        
+        
+        ">
+      <a href="/website/contributing/">
+          &#8226; Contributing
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+          
+        
+    </ul>
+
+    
+    
+      <section id="shortcuts">
+        <h3></h3>
+        <ul>
+          
+              <li>
+                  <a class="padding" href="https://the-going.github.io/website/en"><i class='fas fa-home'></i> Home</a>
+              </li>
+          
+              <li>
+                  <a class="padding" href="https://riot.im/app/#/room/#evlproject:matrix.org/"><i class='fas fa-comments'></i> RIOT channel</a>
+              </li>
+          
+              <li>
+                  <a class="padding" href="https://xenomai.org/mailman/listinfo/xenomai/"><i class='fas fa-comment-dots'></i> Mailing list</a>
+              </li>
+          
+        </ul>
+      </section>
+    
+
+    
+    <section id="prefooter">
+      <hr/>
+      <ul>
+      
+        <li>
+          <a class="padding">
+            <i class="fas fa-language fa-fw"></i>
+          <div class="select-style">
+            <select id="select-language" onchange="location = this.value;">
+          
+          
+          
+              
+              
+                  
+                    
+                    
+                      <option id="en" value="https://the-going.github.io/website/core/kernel-api/file/" selected>English</option>
+                    
+                  
+              
+                  
+              
+          
+              
+              
+                  
+              
+                  
+                    
+                    
+                      <option id="ru" value="https://the-going.github.io/website/ru/core/kernel-api/file/">Русский</option>
+                    
+                  
+              
+          
+        </select>
+        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+          width="255px" height="255px" viewBox="0 0 255 255" style="enable-background:new 0 0 255 255;" xml:space="preserve">
+          <g>
+            <g id="arrow-drop-down">
+              <polygon points="0,63.75 127.5,191.25 255,63.75 		" />
+            </g>
+          </g>
+        </svg>
+        </div>
+        </a>
+        </li>
+      
+
+      
+      </ul>
+    </section>
+    
+    <section id="footer">
+      
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='/website/'>Xenomai 4</a> > <a href='/website/core/'>The EVL core</a> > <a href='/website/core/kernel-api/'>Writing drivers</a> > File description
+          
+        
+          
+        
+          
+        
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#device-file-management-services">Device file management services</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              File description
+            </h1>
+          
+
+        
+
+
+
+	<p>An <a href="/website/core/kernel-api/#evl-driver-definiton">OOB-capable driver</a> is a device
+driver which implements low latency operations on files like
+<a href="/website/core/user-api/io/#oob_read">oob_read()</a>,
+<a href="/website/core/user-api/io/#oob_write">oob_write()</a> and
+<a href="/website/core/user-api/io/#oob_ioctl">oob_ioctl()</a>, in
+addition to a set of common in-band operations such as
+<a href="http://man7.org/linux/man-pages/man2/open.2.html">open(2)</a>,
+<a href="http://man7.org/linux/man-pages/man2/close.2.html">close(2)</a>,
+<a href="http://man7.org/linux/man-pages/man2/read.2.html">read(2)</a>,
+<a href="http://man7.org/linux/man-pages/man2/write.2.html">write(2)</a>,
+<a href="http://man7.org/linux/man-pages/man2/ioctl.2.html">ioctl(2)</a> etc.
+<a href="/website/core/user-api/io/">Out-of-band I/O requests</a> are
+issued by <a href="/website/core/user-api/thread/">EVL threads</a> running
+in user-space. Those requests are directly handled from the
+<a href="/website/dovetail/pipeline/#two-stage-pipeline">out-of-band execution stage</a>, ensuring low
+and bounded latency.</p>
+<p>EVL files are kernel file objects (<code>struct file</code>) which have been
+advertised by an OOB-capable driver as supporting these <a href="/website/core/user-api/io/">out-of-band
+I/O operations</a>, in addition to
+common in-band requests. For instance, <a href="/website/core/user-api/io/#oob_ioctl">oob_ioctl()</a> requests may be issued for an EVL
+file, like
+<a href="http://man7.org/linux/man-pages/man2/ioctl.2.html">ioctl(2)</a> may as
+well. Such advertisement usually happens in the <code>open()</code> operation
+handler of a character device driver by calling <a href="#evl_open_file">evl_open_file()</a> for the new file description being
+initialized. Drivers which create (pseudo-)file objects with
+out-of-band support on-the-fly from their
+<a href="http://man7.org/linux/man-pages/man2/ioctl.2.html">ioctl(2)</a> handler
+may call <a href="#evl_open_file">evl_open_file()</a> from this
+context as necessary.</p>
+
+<div class="notices tip" ><p>A typical example of the latter usage can be found in the EVL-enabled <a href="https://git.xenomai.org/xenomai4/linux-evl/-/blob/3451245cdc9846835f8a2786767b17037ee13dda/drivers/gpio/gpiolib-cdev.c#L463">GPIOLIB
+driver</a>,
+which advertises out-of-band support for files created by the
+GPIO_GET_LINEEVENT_IOCTL request from the <a href="https://git.kernel.org/pub/scm/libs/libgpiod/libgpiod.git">character device interface
+to GPIO
+lines</a>. A
+more usual way of advertising EVL files can be seen from the
+<code>latmus_open()</code> routine of the <a href="https://git.xenomai.org/xenomai4/linux-evl/-/blob/37f57d73123c3b05b9b4f11d5cd3aa2768010dee/drivers/evl/latmus.c#L1148">latmus driver
+code</a>
+which supports the <a href="/website/core/testing/">latmus application</a>..</p>
+</div>
+
+<h3 id="device-file-management-services">Device file management services</h3>
+<hr>
+
+<div class="proto"><a name="evl_open_file"></a>
+int evl_open_file(struct evl_file *efilp, struct file *filp)
+</div>
+
+<p>Advertise <em>filp</em> as a file which can be subject to out-of-band
+handling. <em>filp</em> is a pointer to a common file description (<code>struct file</code>) usually received by the <code>open()</code> operation handler of a
+character device driver. <a href="#evl_open_file">evl_open_file()</a> extends this in-band description with an out-of-band context
+stored at <em>efilp</em>. Once <a href="#evl_open_file">evl_open_file()</a> has returned, applications can send <a href="/website/core/user-api/io/">out-of-band I/O
+requests</a> to this driver via any
+file descriptor which refers to <em>filp</em>. <a href="#evl_open_file">evl_open_file()</a> does not block, it merely initializes <em>efilp</em>,
+binds it to <em>filp</em> then returns.</p>
+
+<div class="notices tip" ><p><em>*efilp</em> is usually part of the private data structure a driver
+associates with each active file, as illustrated by the following
+example:</p>
+</div>
+
+<pre><code>#include &lt;slab.h&gt;
+#include &lt;evl/file.h&gt;
+
+struct foo_private_state {
+       /* ... */
+       struct evl_file efile;
+};
+
+static int foo_open(struct inode *inode, struct file *filp)
+{
+	struct foo_private_state *p;
+	int ret;
+
+	p = kzalloc(sizeof(*p), GFP_KERNEL);
+	if (p == NULL)
+		return -ENOMEM;
+	
+	ret = evl_open_file(&amp;p-&gt;efile, filp);
+	if (ret) {
+	   	 kfree(p);
+		 return ret;		 
+	}
+
+	filp-&gt;private_data = p;
+
+	return 0;
+}
+</code></pre>
+<p><li><i>efilp</i><p>A pointer to an EVL file context (<code>struct evl_file</code>), which is
+initialized by this call. This memory object must live as long as
+<em>filp</em> is valid.</p>
+</li></p>
+
+
+<p><li><i>filp</i><p>The pointer to the file description structure received from the
+<a href="https://www.kernel.org/doc/Documentation/filesystems/vfs.txt">VFS</a> by
+the <code>open()</code> operation handler of a character device driver.</p>
+</li></p>
+
+<p><a href="#evl_open_file">evl_open_file()</a> always succeeds,
+returning zero in the current implementation. However, you may still
+want to check the return code in case error conditions surface in a
+later revision of this code.</p>
+<hr>
+
+<div class="proto"><a name="evl_release_file"></a>
+void evl_release_file(struct evl_file *efilp)
+</div>
+
+<p>This is the converse operation to <a href="#evl_open_file">evl_open_file()</a>, which <em>must</em> be called by the <code>release()</code>
+handler of an OOB-capable character device driver.</p>
+<p>Because the in-band kernel and the EVL core run almost fully
+asynchronously, some <a href="/website/core/user-api/io/">out-of-band I/O operations</a> - which the in-band kernel does not know about -
+might still be pending for <em>efilp</em> when the <code>release()</code> handler is
+invoked by the in-band kernel. For instance, some application which
+issued an <a href="/website/core/user-api/io/#oob_read">oob_read()</a> request might still be waiting for data in the <code>oob_read()</code>
+operation handler of the driver, sleeping on an EVL wait queue or a
+<a href="/website/core/kernel-api/semaphore/">semaphore</a>,
+when some other thread of the program
+<a href="http://man7.org/linux/man-pages/man2/close.2.html">closes</a> all the
+file descriptors referring to that file, leading to the <code>release()</code>
+handler to be called by the
+<a href="https://www.kernel.org/doc/Documentation/filesystems/vfs.txt">VFS</a>. In
+order to track those operations, EVL maintains an internal reference
+count on every device file registered with <a href="#evl_open_file">evl_open_file()</a>. <a href="#evl_release_file">evl_release_file()</a> waits for this reference count to reach zero
+before returning to the caller, acting as a synchronization barrier
+with respect to any concurrent out-of-band operation which might be
+running on any CPU. When this routine returns, you can be sure that no
+such operation is ongoing in the system for the released file,
+therefore it can be safely dismantled afterwards.</p>
+<p>For this reason, you do want to call <a href="#evl_release_file">evl_release_file()</a> <em>before</em> the context data attached to the
+file being released is freed by the <code>release()</code> handler eventually
+. The following example illustrates such precaution, considering that
+some out-of-band operations might still be in-flight while the device
+file is released by the in-band kernel, such as waiting on an <a href="/website/core/kernel-api/semaphore/">EVL
+semaphore</a>.</p>
+<pre><code>#include &lt;slab.h&gt;
+#include &lt;evl/flag.h&gt;
+#include &lt;evl/file.h&gt;
+
+struct foo_private_state {
+       /* ... */
+       struct evl_flag eflag;
+       struct evl_file efile;
+};
+
+static int foo_open(struct inode *inode, struct file *filp)
+{
+	struct foo_private_state *p;
+	int ret;
+
+	p = kzalloc(sizeof(*p), GFP_KERNEL);
+	if (p == NULL)
+		return -ENOMEM;
+	
+	ret = evl_open_file(&amp;p-&gt;efile, filp);
+	if (ret) {
+	   	 kfree(p);
+		 return ret;		 
+	}
+
+	evl_init_flag(&amp;p-&gt;eflag);
+	filp-&gt;private_data = p;
+
+	return 0;
+}
+
+static int foo_release(struct inode *inode, struct file *filp)
+{
+	struct foo_private_state *p = filp-&gt;private_data;
+
+	/*
+	 * Flush and destroy the flag some out-of-band operation(s)
+	 * might still be pending on. Some EVL thread(s) might be
+	 * unblocked from oob_read() as a result of this call.
+	 */
+	evl_destroy_flag(&amp;p-&gt;eflag);
+
+	/*
+	 * Synchronize with these operations. Unblocked threads will drop
+	 * any pending reference on the file being released, eventually
+	 * allowing this call to return.
+	 */
+	evl_release_file(&amp;p-&gt;efile);
+
+	/*
+	 * Neither in-band nor out-of-band users of this file anymore
+	 * for sure, we can free the per-file private context.
+	 */
+	kfree(p);
+
+	return 0;
+}
+</code></pre>
+<p><li><i>efilp</i><p>A pointer to the EVL file context (<code>struct evl_file</code>), which was
+initialized by a previous call to <a href="#evl_open_file">evl_open_file()</a>.</p>
+</li></p>
+
+<p><a href="#evl_release_file">evl_release_file()</a> may block
+before releasing the file until all <a href="#evl_get_file">references</a> to <em>efilp</em> are gone, which indicates that no
+out-of-band operation is undergoing for this EVL file.</p>
+<hr>
+
+<div class="proto"><a name="evl_get_file"></a>
+struct evl_file *evl_get_file(unsigned int fd)
+</div>
+
+<p>Search for the EVL file indexed on <em>fd</em> and get a reference on it
+atomically, which prevents its release by <a href="#evl_release_file">evl_release_file()</a> until the last reference is dropped
+by a call to <a href="#evl_put_file">evl_put_file()</a>.</p>
+<p>Internally, the EVL core holds a reference on any file subject to an
+<a href="/website/core/user-api/io/">out-of-band request</a> across the
+call to the corresponding operation handler in the driver, so that
+such file does not go stale unexpectedly while the request is still
+ongoing. You may want to get additional references on EVL files from
+any EVL driver which receives file descriptors directly from
+applications via
+<a href="http://man7.org/linux/man-pages/man2/ioctl.2.html">ioctl(2)</a>
+arguments. Such reference should be held as long as the operation on
+the underlying EVL file is not complete.</p>
+
+<div class="notices tip" ><p>The implementation of the <a href="/website/core/user-api/poll/">polling services</a> in the <a href="https://git.xenomai.org/xenomai4/linux-evl/-/blob/37f57d73123c3b05b9b4f11d5cd3aa2768010dee/kernel/evl/poll.c#L227">EVL
+core</a>
+illustrates how <a href="#evl_get_file">evl_get_file()</a> is used
+for retrieving EVL file descriptions from descriptors passed by the
+application.</p>
+</div>
+
+
+<p><li><i>fd</i><p>A valid file descriptor referring to the EVL file.</p>
+</li></p>
+
+<p>This call returns a valid pointer to an active EVL file - such as
+<em>efilp</em> passed to <a href="#evl_open_file">evl_open_file()</a>)</p>
+<ul>
+<li>holding a reference on such file in the same move.</li>
+</ul>
+<hr>
+
+<div class="proto"><a name="evl_get_fileref"></a>
+void evl_get_fileref(struct evl_file *efilp)
+</div>
+
+<p>Get a reference on the EVL file <em>efilp</em>. This is the core helper which
+actually gets a reference on any EVL file. Once it has returned, the
+file cannot be released by <a href="#evl_release_file">evl_release_file()</a> until the reference is dropped by a converse
+call to <a href="#evl_put_file">evl_put_file()</a>.</p>
+
+<p><li><i>efilp</i><p>A pointer to a valid EVL file description. This description was
+originally initialized by a call to <a href="#evl_open_file">evl_open_file()</a>.</p>
+</li></p>
+
+<hr>
+
+<div class="proto"><a name="evl_put_file"></a>
+void evl_put_file(struct evl_file *efilp)
+</div>
+
+<p>Drop a reference on an EVL file previously obtained by a call to
+<a href="#evl_get_fileref">evl_get_fileref()</a> or
+<a href="#evl_get_file">evl_get_file()</a>.</p>
+<p>If the reference count is zero at the time <a href="#evl_release_file">evl_release_file()</a> is called for <em>efilp</em>, the release is
+performed immediately.</p>
+<hr>
+<p style="text-align:right">Last modified: Sat, 05 Jun 2021 16:47:53 &#43;0200</p>
+
+
+
+
+
+
+<footer class=" footline" >
+	
+</footer>
+
+        
+        </div>
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="/website/core/kernel-api/function_index/" title="Kernel function index"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="/website/core/kernel-api/socket/" title="Socket interface" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/website/js/clipboard.min.js?1629923932"></script>
+    <script src="/website/js/perfect-scrollbar.min.js?1629923932"></script>
+    <script src="/website/js/perfect-scrollbar.jquery.min.js?1629923932"></script>
+    <script src="/website/js/jquery.sticky.js?1629923932"></script>
+    <script src="/website/js/featherlight.min.js?1629923932"></script>
+    <script src="/website/js/highlight.pack.js?1629923932"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/website/js/modernizr.custom-3.6.0.js?1629923932"></script>
+    <script src="/website/js/learn.js?1629923932"></script>
+    <script src="/website/js/hugo-learn.js?1629923932"></script>
+    
+        
+            <script src="/website/mermaid/mermaid.js?1629923932"></script>
+        
+        <script>
+            mermaid.initialize({ startOnLoad: true });
+        </script>
+    
+    
+  </body>
+</html>

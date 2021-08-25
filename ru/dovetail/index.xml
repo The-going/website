@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Dovetail interface on Xenomai 4</title>
+    <link>https://the-going.github.io/website/ru/dovetail/</link>
+    <description>Recent content in Dovetail interface on Xenomai 4</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <copyright>Copyright 2021 - The Xenomai project.</copyright>
+    <lastBuildDate>Tue, 26 Jun 2018 19:28:38 +0200</lastBuildDate><atom:link href="https://the-going.github.io/website/ru/dovetail/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Alternate scheduling</title>
+      <link>https://the-going.github.io/website/ru/dovetail/altsched/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://the-going.github.io/website/ru/dovetail/altsched/</guid>
+      <description>For specific use cases requiring reliable, ultra-low response times, we want to enable hosted autonomous software cores to control common Linux tasks based on their own scheduler infrastructure, fully decoupled from the host&amp;rsquo;s scheduler, with absolute priority over all other kernel activities.
+This being said, Dovetail also promotes the idea that a dual kernel system should keep the functional overlap between the main kernel and the autonomous core minimal. To this end, a task from such core should be merely seen as a regular Linux task with additional scheduling capabilities guaranteeing very low and bounded response times.</description>
+    </item>
+    
+    <item>
+      <title>File tracking</title>
+      <link>https://the-going.github.io/website/ru/dovetail/files/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://the-going.github.io/website/ru/dovetail/files/</guid>
+      <description>A companion core usually wants its device drivers to export a file interface to applications. It may even generalize this to all of the resources it provides, which can then be implemented by device drivers and referred to by common file descriptors from applications. For this, we need a way for the core to maintain its own per-process index of files which may support out-of-band I/O, since we will not be allowed to reuse the in-band VFS services from the out-of-band context for this purpose (e.</description>
+    </item>
+    
+    <item>
+      <title>Socket handling</title>
+      <link>https://the-going.github.io/website/ru/dovetail/sockets/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://the-going.github.io/website/ru/dovetail/sockets/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Rules Of Thumb</title>
+      <link>https://the-going.github.io/website/ru/dovetail/rulesofthumb/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://the-going.github.io/website/ru/dovetail/rulesofthumb/</guid>
+      <description>Turn on debug options in the kernel configuration! During the development phase, do yourself a favour: turn on CONFIG_DEBUG_IRQ_PIPELINE and CONFIG_DEBUG_DOVETAIL.
+The first one will catch many nasty issues, such as calling unsafe in-band code from out-of-band context. The second one checks the integrity of the alternate scheduling support, detecting issues in the architecture port.
+The runtime overhead induced by enabling these options is marginal. Just don&amp;rsquo;t port Dovetail or implement out-of-band client code without them enabled in your target kernel, seriously.</description>
+    </item>
+    
+  </channel>
+</rss>

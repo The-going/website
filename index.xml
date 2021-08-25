@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Xenomai 4</title>
+    <link>https://the-going.github.io/website/</link>
+    <description>Recent content on Xenomai 4</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <copyright>Copyright 2021 - The Xenomai project.</copyright>
+    <lastBuildDate>Sat, 16 Feb 2019 16:10:44 +0100</lastBuildDate><atom:link href="https://the-going.github.io/website/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Building EVL</title>
+      <link>https://the-going.github.io/website/core/build-steps/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://the-going.github.io/website/core/build-steps/</guid>
+      <description>Building EVL from source   The build process. Building EVL from the source code is a two-step process: we need to build a kernel enabling the EVL core, and the library implementing the user API to this core - aka libevl - using the proper toolchain. These steps may happen in any order. The output of this process is:
+  a Linux kernel image featuring Dovetail and the EVL core on top of it.</description>
+    </item>
+    
+    <item>
+      <title>DMA</title>
+      <link>https://the-going.github.io/website/core/oob-drivers/dma/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://the-going.github.io/website/core/oob-drivers/dma/</guid>
+      <description>A cornerstone of many real-time capable drivers which can process requests from the out-of-band stage is DMA support. Being able to offload data transfers to a DMA unit goes a long way toward implementing efficient acquisition loops, especially if they have to run at high frequency, sparing precious CPU cycles.
+In order to support out-of-band transactions, a DMA controller (e.g. bcm2835-dma, or imx-sdma) must include Dovetail-specific changes. Since DMA drivers are commonly based on the virtual channel layer (aka virt-dma), Dovetail adds the required changes to this layer in order to cope with execution from the out-of-band stage.</description>
+    </item>
+    
+    <item>
+      <title>SPI</title>
+      <link>https://the-going.github.io/website/core/oob-drivers/spi/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://the-going.github.io/website/core/oob-drivers/spi/</guid>
+      <description>EVL provides support for running high frequency SPI transfers which are useful in implementing closed-loop control systems. Applications manage the out-of-band transfers from user space via requests sent to the SPIDEV driver, which exports a user-space API to reach the SPI devices overs a given bus. To this end, EVL makes a few of strong assumptions:
+  a DMA is available for transferring the data over the SPI bus between the controller and the device.</description>
+    </item>
+    
+    <item>
+      <title>GPIO</title>
+      <link>https://the-going.github.io/website/core/oob-drivers/gpio/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://the-going.github.io/website/core/oob-drivers/gpio/</guid>
+      <description>Dealing with GPIOs from the out-of-band execution stage enables the application to always respond to external signals within a few microseconds regardless of the in-band workload running in parallel on the system. Enabling CONFIG_GPIOLIB_OOB in the kernel configuration turns on such such capability in the regular GPIOLIB driver, which depends on the EVL core. The out-of-band GPIO support is available to applications using a couple of additional I/O requests to the character device interface exported by this driver to application code running in user-space (i.</description>
+    </item>
+    
+    <item>
+      <title>Runtime configuration</title>
+      <link>https://the-going.github.io/website/core/runtime-settings/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://the-going.github.io/website/core/runtime-settings/</guid>
+      <description>Calibrating the core timer When enabled in the kernel, EVL transparently controls the hardware timer chip via a proxy device, serving all timing requests including those originating from the in-band kernel logic. In order to maximize the timing accuracy, EVL needs to figure out the basic latency of the target platform.
+Upon receipt from an interrupt, the time spent traversing the kernel code from the low-level entry code until the interrupt handler installed by some driver is invoked is shorter than the time that would be required for a kernel thread to resume on such event instead.</description>
+    </item>
+    
+    <item>
+      <title>Testing the installation</title>
+      <link>https://the-going.github.io/website/core/testing/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://the-going.github.io/website/core/testing/</guid>
+      <description>EVL comes with a series of tests you can run to make sure the core is performing correctly on your target system.
+Unit testing A series of unit testing programs is produced in $prefix/tests as part of building libevl. You should run each of them to make sure everything is fine. The simplest way to do this is as follows:
+ Running the EVL unit tests
+ # evl test duplicate-element: OK monitor-pp-dynamic: OK monitor-pi: OK clone-fork-exec: OK clock-timer-periodic: OK poll-close: OK sem-wait: OK monitor-pp-raise: OK monitor-pp-tryenter: OK heap-torture: OK monitor-pp-lower: OK poll-read: OK monitor-deadlock: OK monitor-wait-multiple: OK monitor-event: OK proxy-eventfd: OK monitor-flags.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://the-going.github.io/website/core/commands/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://the-going.github.io/website/core/commands/</guid>
+      <description>The &amp;lsquo;evl&amp;rsquo; command The &amp;lsquo;evl&amp;rsquo; umbrella utility can run the set of base commands available for controlling, inspecting and testing the state of the EVL core and any command matching the &amp;lsquo;evl-*&amp;rsquo; glob pattern which may be reachable from the shell $PATH variable. The way the &amp;lsquo;evl&amp;rsquo; utility centralizes access to a variety of EVL-related commands is very similar to that of git on purpose. Each of the EVL commands is implemented by an external plugin, which can be a mere executable, or a script in whatever language.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://the-going.github.io/website/core/caveat/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://the-going.github.io/website/core/caveat/</guid>
+      <description>Things you definitely want to know Generic issues isolcpus is our friend too Isolating some CPUs on the kernel command line using the isolcpus= option, in order to prevent the load balancer from offloading in-band work to them is not only a good idea with PREEMPT_RT, but for any dual kernel configuration too.
+By doing so, having some random in-band work evicting cache lines on a CPU where real-time threads briefly sleep is less likely, increasing the odds of costly cache misses, which translates positively into the latency numbers you can get.</description>
+    </item>
+    
+    <item>
+      <title>The EVL ABI</title>
+      <link>https://the-going.github.io/website/core/under-the-hood/abi/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://the-going.github.io/website/core/under-the-hood/abi/</guid>
+      <description>Since we have service calls between the applications and the EVL core, we depend on a certain format of request codes, arguments and return values when exchanging information between both ends, like the contents of the argument structure passed to the various ioctl(2) and oob_ioctl() requests. This convention forms the EVL ABI. As hard as we might try to keep the ABI stable over time, there are times when this cannot be achieved, at the very least because we may want to make new features added to the EVL core visible to applications.</description>
+    </item>
+    
+    <item>
+      <title>IRQ handling</title>
+      <link>https://the-going.github.io/website/dovetail/pipeline/irq_handling/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://the-going.github.io/website/dovetail/pipeline/irq_handling/</guid>
+      <description>Requesting an out-of-band IRQ Dovetail introduces the new interrupt type flag IRQF_OOB, denoting an out-of-band handler to the generic interrupt API routines:
+ setup_irq() for early registration of special interrupts request_irq() for device interrupts __request_percpu_irq() for per-CPU interrupts  An IRQ action handler bearing this flag will run from out-of-band context over the out-of-band stage, regardless of the current interrupt state of the in-band stage. If no out-of-band stage is present, the flag will be ignored, with the interrupt handler running on the in-band stage as usual.</description>
+    </item>
+    
+    <item>
+      <title>Synthetic IRQs</title>
+      <link>https://the-going.github.io/website/dovetail/pipeline/synthetic/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://the-going.github.io/website/dovetail/pipeline/synthetic/</guid>
+      <description>The pipeline introduces an additional type of interrupts, which are purely software-originated, with no hardware involvement. These IRQs can be triggered by any kernel code. Synthetic IRQs are inherently per-CPU events. Because the common pipeline flow applies to synthetic interrupts, it is possible to attach them to out-of-band and/or in-band handlers, just like device interrupts.
+Synthetic interrupts abide by the normal rules with respect to interrupt masking: such IRQs may be deferred until the stage they should be handled from is unstalled.</description>
+    </item>
+    
+    <item>
+      <title>IRQ injection</title>
+      <link>https://the-going.github.io/website/dovetail/pipeline/pipeline_inject/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://the-going.github.io/website/dovetail/pipeline/pipeline_inject/</guid>
+      <description>Sending out-of-band IPIs to remote CPUs Although the pipeline does not directly use IPIs internally, it exposes two generic IPI vectors which autonomous cores may use in SMP configuration for signaling the following events across CPUs:
+  RESCHEDULE_OOB_IPI, the cross-CPU task reschedule request. This is available to the core&amp;rsquo;s scheduler for kicking the task rescheduling procedure on remote CPUs, when the state of their respective runqueue has changed. For instance, a task sleeping on CPU #1 may be unblocked by a system call issued from CPU #0: in this case, the scheduler code running on CPU #0 is supposed to tell CPU #1 that it should reschedule.</description>
+    </item>
+    
+    <item>
+      <title>Interrupt protection</title>
+      <link>https://the-going.github.io/website/dovetail/pipeline/interrupt_protection/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://the-going.github.io/website/dovetail/pipeline/interrupt_protection/</guid>
+      <description>Disabling interrupts in the CPU The local_irq_save() and local_irq_disable() helpers are no more disabling interrupts in the CPU when interrupt pipelining is enabled, but only disable interrupt events virtually for the in-band stage.
+A set of helpers is provided for manipulating the interrupt disable flag in the CPU instead. When CONFIG_IRQ_PIPELINE is disabled, this set maps 1:1 over the regular local_irq_*() API.
+   Original/Virtual Non-virtualized call     local_save_flags(flags) flags = hard_local_save_flags()   local_irq_disable() hard_local_irq_disable()   local_irq_enable() hard_local_irq_enable()   local_irq_save(flags) flags = hard_local_irq_save()   local_irq_restore(flags) hard_local_irq_restore(flags)   irqs_disabled() hard_irqs_disabled()   irqs_disabled_flags(flags) hard_irqs_disabled_flags(flags)    Stalling the out-of-band stage Just like the in-band stage is affected by the state of the virtual interrupt disable flag, the interrupt state of the oob stage is controlled by a dedicated stall bit flag in the oob stage&amp;rsquo;s status.</description>
+    </item>
+    
+    <item>
+      <title>Installing the out-of-band stage</title>
+      <link>https://the-going.github.io/website/dovetail/pipeline/stage_push/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://the-going.github.io/website/dovetail/pipeline/stage_push/</guid>
+      <description>Before you can direct the incoming interrupt flow to out-of-band handlers, you need to install the out-of-band interrupt stage. Conversely, you need to remove the out-of-band stage from the interrupt pipeline when you are done with receiving out-of-band events.
+  int enable_oob_stage(const char *name)  nameA symbolic name describing the high priority interrupt stage which is being installed. This information is merely used in kernel messages, so it should be short but descriptive enough.</description>
+    </item>
+    
+    <item>
+      <title>Stage escalation</title>
+      <link>https://the-going.github.io/website/dovetail/pipeline/stage_escalation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://the-going.github.io/website/dovetail/pipeline/stage_escalation/</guid>
+      <description>Sometimes you may need to escalate the current execution stage from in-band to out-of-band, only for running a particular routine. This can be done using run_oob_call(). For instance, the EVL core is using this service to escalate calls to its rescheduling procedure to the out-of-band stage, as described in the discussion about switching task contexts with Dovetail&amp;rsquo;s support for alternate scheduling.
+  int run_oob_call(int (*fn)(void *arg), void *arg)  fnThe address of the routine to execute on the out-of-band stage.</description>
+    </item>
+    
+    <item>
+      <title>Locking</title>
+      <link>https://the-going.github.io/website/dovetail/pipeline/locking/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://the-going.github.io/website/dovetail/pipeline/locking/</guid>
+      <description>Additional spinlock types The pipeline core introduces two spinlock types:
+ hard spinlocks manipulate the CPU interrupt mask, and don&amp;rsquo;t affect the kernel preemption state in locking/unlocking operations.  This type of spinlock is useful for implementing a critical section to serialize concurrent accesses from both in-band and out-of-band contexts, i.e. from in-band and oob stages. Obviously, sleeping into a critical section protected by a hard spinlock would be a very bad idea.</description>
+    </item>
+    
+    <item>
+      <title>Prerequisites</title>
+      <link>https://the-going.github.io/website/dovetail/porting/prerequisites/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://the-going.github.io/website/dovetail/porting/prerequisites/</guid>
+      <description>Generic requirements The interrupt pipeline requires the following features to be available from the target Linux kernel:
+  Generic IRQ handling (CONFIG_GENERIC_IRQ) and IRQ domains (CONFIG_IRQ_DOMAIN), which most architectures should support these days.
+  Generic clock event abstraction (CONFIG_GENERIC_CLOCKEVENTS).
+  Generic clock source abstraction (!CONFIG_ARCH_USES_GETTIMEOFFSET).
+  Other assumptions ARM   a target ARM machine port must be allowed to specify its own IRQ handler at run time (CONFIG_MULTI_IRQ_HANDLER).</description>
+    </item>
+    
+    <item>
+      <title>Interrupt flow</title>
+      <link>https://the-going.github.io/website/dovetail/porting/irqflow/</link>
+      <pubDate>Wed, 27 Jun 2018 15:20:04 +0200</pubDate>
+      
+      <guid>https://the-going.github.io/website/dovetail/porting/irqflow/</guid>
+      <description>Adapting the generic interrupt management (genirq) Interrupt pipelining involves a basic change in controlling the interrupt flow: handle_domain_irq() from the IRQ domain API redirects all parent IRQs to the pipeline entry by calling generic_pipeline_irq(), instead of generic_handle_irq().
+Generic flow handlers acknowledge the incoming IRQ event in the hardware as usual, by calling the appropriate irqchip routine (e.g. irq_ack(), irq_eoi()) according to the interrupt type. However, the flow handlers do not immediately invoke the in-band interrupt handlers.</description>
+    </item>
+    
+    <item>
+      <title>Atomic operations</title>
+      <link>https://the-going.github.io/website/dovetail/porting/atomic/</link>
+      <pubDate>Wed, 27 Jun 2018 17:17:25 +0200</pubDate>
+      
+      <guid>https://the-going.github.io/website/dovetail/porting/atomic/</guid>
+      <description>The effect of virtualizing interrupt protection must be reversed for atomic helpers everywhere interrupt disabling is needed to serialize callers, regardless of the stage they live on. Typically, the following files are concerned:
+ include/asm-generic/atomic.h include/asm-generic/cmpxchg-local.h include/asm-generic/cmpxchg.h  Likewise in the architecture-specific code:
+arch/arm/include/asm/atomic.h arch/arm/include/asm/bitops.h arch/arm/include/asm/cmpxchg.h
+This is required to keep those helpers usable on data which might be accessed from both stages. A common way to revert such virtualization involves substituting calls to the - virtualized - local_irq_save(), local_irq_restore() API with their hard, non-virtualized counterparts.</description>
+    </item>
+    
+    <item>
+      <title>Architecture-specific bits</title>
+      <link>https://the-going.github.io/website/dovetail/porting/arch/</link>
+      <pubDate>Wed, 27 Jun 2018 17:07:51 +0200</pubDate>
+      
+      <guid>https://the-going.github.io/website/dovetail/porting/arch/</guid>
+      <description>Interrupt mask virtualization The architecture-specific code which manipulates the interrupt flag in the CPU&amp;rsquo;s state register in arch//include/asm/irqflags.h should be split between real and virtual interrupt control. The real interrupt control operations are inherited from the in-band kernel implementation. The virtual ones should be built upon services provided by the interrupt pipeline core.
+ firstly, the original *arch_local_** helpers should be renamed as *native_** helpers, affecting the hardware interrupt state in the CPU.</description>
+    </item>
+    
+    <item>
+      <title>Tick devices</title>
+      <link>https://the-going.github.io/website/dovetail/porting/timer/</link>
+      <pubDate>Wed, 27 Jun 2018 17:15:23 +0200</pubDate>
+      
+      <guid>https://the-going.github.io/website/dovetail/porting/timer/</guid>
+      <description>Proxy tick device The proxy tick device is a synthetic clock event device for handing over the control of the hardware tick device to a high-precision, out-of-band timing logic, which cannot be delayed by the in-band kernel code. With this proxy in place, any out-of-band code can gain control over the timer hardware for carrying out its own timing duties. In the same move, it is required to honor the timing requests received from the in-band timer layer (i.</description>
+    </item>
+    
+    <item>
+      <title>Reading clock sources</title>
+      <link>https://the-going.github.io/website/dovetail/porting/clocksource/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://the-going.github.io/website/dovetail/porting/clocksource/</guid>
+      <description>Your autonomous core most likely needs a fast access to the current clock source from the out-of-band context, for reading precise timestamps which are in sync with the kernel&amp;rsquo;s idea of time. The best way to achieve this is by enabling the fast clock_gettime(3) helper in the vDSO support for the target CPU architecture. At least, you may want user-space tasks controlled by the core to have access to the POSIX-defined CLOCK_MONOTONIC and CLOCK_REALTIME clocks from the out-of-band context, using a vDSO call, with no execution and response time penalty involved in invoking an [in-band syscall] (/website/dovetail/altsched/#inband-switch).</description>
+    </item>
+    
+    <item>
+      <title>Syscall path</title>
+      <link>https://the-going.github.io/website/dovetail/porting/syscall/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://the-going.github.io/website/dovetail/porting/syscall/</guid>
+      <description>Last modified: Sun, 08 Mar 2020 13:06:41 &amp;#43;0100</description>
+    </item>
+    
+    <item>
+      <title>Raw printk support</title>
+      <link>https://the-going.github.io/website/dovetail/porting/rawprintk/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://the-going.github.io/website/dovetail/porting/rawprintk/</guid>
+      <description>Unless you are lucky enough to have an ICE for debugging hard issues involving out-of-band contexts, you might have to resort to basic printk-style debugging over a serial line. Although the printk() machinery can be used from out-of-band context when Dovetail is enabled, the output is deferred until the in-band stage gets back in control, which means that:
+  you can&amp;rsquo;t reliably trace out-of-band code on the spot, deferred output issued from an out-of-band context, or from a section of code running with interrupts disabled in the CPU may appear after subsequent in-band messages under some circumstances, due to a buffering effect.</description>
+    </item>
+    
+    <item>
+      <title>Misc</title>
+      <link>https://the-going.github.io/website/dovetail/porting/misc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://the-going.github.io/website/dovetail/porting/misc/</guid>
+      <description>printk() support printk() may be called by out-of-band code safely, without encurring extra latency. The output is conveyed like NMI-originated output, which involves some delay until the in-band code resumes, and the console driver(s) can handle it.
+Tracing Tracepoints can be traversed by out-of-band code safely. Dynamic tracing is available to a kernel running the pipelined interrupt model too.
+ Last modified: Tue, 26 Jun 2018 19:27:55 &amp;#43;0200</description>
+    </item>
+    
+    <item>
+      <title>API revisions</title>
+      <link>https://the-going.github.io/website/core/user-api/api-revs/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://the-going.github.io/website/core/user-api/api-revs/</guid>
+      <description>You can obtain the current API revision of libevl either at compilation time using the value of the __EVL__ macro defined in the &amp;lt;evl/evl.h&amp;gt; main header file, or dynamically by calling evl_get_version().
+rev. 18 (libevl r26) Introduces the socket interface:
+  oob_recvmsg() to receive a message in out-of-band mode.
+  oob_sendmsg() to send a message in out-of-band mode.
+  The regular socket(2) call as extended by ABI 26 is capable of creating oob-capable sockets when receiving the SOCK_OOB type flag, so there is no EVL-specific call for this operation.</description>
+    </item>
+    
+    <item>
+      <title>Developer&#39;s Notes</title>
+      <link>https://the-going.github.io/website/dovetail/porting/devnotes/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://the-going.github.io/website/dovetail/porting/devnotes/</guid>
+      <description>Generic Fundamentally preemption-safe contexts Over a few contexts, we may traverse code using unprotected, preemption-sensitive accessors such as percpu() without disabling preemption specifically, because either one condition is true;
+  if preempt_count() bears either of the PIPELINE_MASK or STAGE_MASK bits, which turns preemption off, therefore CPU migration cannot happen (debug_smp_processor_id() and preempt checks in percpu accessors would detect such context properly too).
+  if we are running over the context of the in-band stage&amp;rsquo;s event log syncer (sync_current_stage()) playing a deferred interrupt, in which case the virtual interrupt disable bit is set, so no CPU migration may occur either.</description>
+    </item>
+    
+    <item>
+      <title>Alternate scheduling</title>
+      <link>https://the-going.github.io/website/dovetail/altsched/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://the-going.github.io/website/dovetail/altsched/</guid>
+      <description>For specific use cases requiring reliable, ultra-low response times, we want to enable hosted autonomous software cores to control common Linux tasks based on their own scheduler infrastructure, fully decoupled from the host&amp;rsquo;s scheduler, with absolute priority over all other kernel activities.
+This being said, Dovetail also promotes the idea that a dual kernel system should keep the functional overlap between the main kernel and the autonomous core minimal. To this end, a task from such core should be merely seen as a regular Linux task with additional scheduling capabilities guaranteeing very low and bounded response times.</description>
+    </item>
+    
+    <item>
+      <title>File tracking</title>
+      <link>https://the-going.github.io/website/dovetail/files/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://the-going.github.io/website/dovetail/files/</guid>
+      <description>A companion core usually wants its device drivers to export a file interface to applications. It may even generalize this to all of the resources it provides, which can then be implemented by device drivers and referred to by common file descriptors from applications. For this, we need a way for the core to maintain its own per-process index of files which may support out-of-band I/O, since we will not be allowed to reuse the in-band VFS services from the out-of-band context for this purpose (e.</description>
+    </item>
+    
+    <item>
+      <title>Socket handling</title>
+      <link>https://the-going.github.io/website/dovetail/sockets/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://the-going.github.io/website/dovetail/sockets/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Rules Of Thumb</title>
+      <link>https://the-going.github.io/website/dovetail/rulesofthumb/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://the-going.github.io/website/dovetail/rulesofthumb/</guid>
+      <description>Turn on debug options in the kernel configuration! During the development phase, do yourself a favour: turn on CONFIG_DEBUG_IRQ_PIPELINE and CONFIG_DEBUG_DOVETAIL.
+The first one will catch many nasty issues, such as calling unsafe in-band code from out-of-band context. The second one checks the integrity of the alternate scheduling support, detecting issues in the architecture port.
+The runtime overhead induced by enabling these options is marginal. Just don&amp;rsquo;t port Dovetail or implement out-of-band client code without them enabled in your target kernel, seriously.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://the-going.github.io/website/devprocess/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://the-going.github.io/website/devprocess/</guid>
+      <description>Xenomai 4 development process The Xenomai 4 project works on three software components:
+  The Dovetail interface, which introduces a high-priority execution stage into the linux kernel logic, on which a functionally-independent companion software core may receive interrupts and run threads.
+  A compact and SMP-scalable real-time core - aka the EVL core - leveraging Dovetail&amp;rsquo;s capabilities, which is intended to be the reference implementation for other Dovetail-based companion cores.</description>
+    </item>
+    
+    <item>
+      <title>ABI revisions</title>
+      <link>https://the-going.github.io/website/core/abi-revs/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://the-going.github.io/website/core/abi-revs/</guid>
+      <description>#abimap { width: 35%; margin-left: auto; margin-right: auto; } #abimap th { text-align: center; } #abimap td { text-align: center; } #abimap tr:nth-child(even) { background-color: #f2f2f2; }   Revision Purpose libevl release   26 Add socket interface. r21   25 Add latmus request for measuring in-band response time to synthetic interrupt latency. r21   24 Add proxy read side. r19   23 Add the Observable element, and thread observability.</description>
+    </item>
+    
+    <item>
+      <title>Licensing terms</title>
+      <link>https://the-going.github.io/website/license/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://the-going.github.io/website/license/</guid>
+      <description>SPDX license identifiers are used throughout the code to state the licensing terms of each file clearly. This boils down to:
+  GPL-2.0 for the EVL core in kernel space.
+  [GPL-2.0] (https://spdx.org/licenses/GPL-2.0.html) WITH Linux-syscall-note for the UAPI bits exported to user-space, so that libevl knows at build time about the ABI details of the system call interface implemented by the EVL core.
+  MIT for all code from libevl, which implements the EVL system call wrappers, a few utilities and test programs.</description>
+    </item>
+    
+  </channel>
+</rss>

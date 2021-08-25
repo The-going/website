@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>The EVL core on Xenomai 4</title>
+    <link>https://the-going.github.io/website/core/</link>
+    <description>Recent content in The EVL core on Xenomai 4</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <copyright>Copyright 2021 - The Xenomai project.</copyright>
+    <lastBuildDate>Sat, 16 Feb 2019 16:10:44 +0100</lastBuildDate><atom:link href="https://the-going.github.io/website/core/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Building EVL</title>
+      <link>https://the-going.github.io/website/core/build-steps/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://the-going.github.io/website/core/build-steps/</guid>
+      <description>Building EVL from source   The build process. Building EVL from the source code is a two-step process: we need to build a kernel enabling the EVL core, and the library implementing the user API to this core - aka libevl - using the proper toolchain. These steps may happen in any order. The output of this process is:
+  a Linux kernel image featuring Dovetail and the EVL core on top of it.</description>
+    </item>
+    
+    <item>
+      <title>Runtime configuration</title>
+      <link>https://the-going.github.io/website/core/runtime-settings/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://the-going.github.io/website/core/runtime-settings/</guid>
+      <description>Calibrating the core timer When enabled in the kernel, EVL transparently controls the hardware timer chip via a proxy device, serving all timing requests including those originating from the in-band kernel logic. In order to maximize the timing accuracy, EVL needs to figure out the basic latency of the target platform.
+Upon receipt from an interrupt, the time spent traversing the kernel code from the low-level entry code until the interrupt handler installed by some driver is invoked is shorter than the time that would be required for a kernel thread to resume on such event instead.</description>
+    </item>
+    
+    <item>
+      <title>Testing the installation</title>
+      <link>https://the-going.github.io/website/core/testing/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://the-going.github.io/website/core/testing/</guid>
+      <description>EVL comes with a series of tests you can run to make sure the core is performing correctly on your target system.
+Unit testing A series of unit testing programs is produced in $prefix/tests as part of building libevl. You should run each of them to make sure everything is fine. The simplest way to do this is as follows:
+ Running the EVL unit tests
+ # evl test duplicate-element: OK monitor-pp-dynamic: OK monitor-pi: OK clone-fork-exec: OK clock-timer-periodic: OK poll-close: OK sem-wait: OK monitor-pp-raise: OK monitor-pp-tryenter: OK heap-torture: OK monitor-pp-lower: OK poll-read: OK monitor-deadlock: OK monitor-wait-multiple: OK monitor-event: OK proxy-eventfd: OK monitor-flags.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://the-going.github.io/website/core/commands/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://the-going.github.io/website/core/commands/</guid>
+      <description>The &amp;lsquo;evl&amp;rsquo; command The &amp;lsquo;evl&amp;rsquo; umbrella utility can run the set of base commands available for controlling, inspecting and testing the state of the EVL core and any command matching the &amp;lsquo;evl-*&amp;rsquo; glob pattern which may be reachable from the shell $PATH variable. The way the &amp;lsquo;evl&amp;rsquo; utility centralizes access to a variety of EVL-related commands is very similar to that of git on purpose. Each of the EVL commands is implemented by an external plugin, which can be a mere executable, or a script in whatever language.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://the-going.github.io/website/core/caveat/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://the-going.github.io/website/core/caveat/</guid>
+      <description>Things you definitely want to know Generic issues isolcpus is our friend too Isolating some CPUs on the kernel command line using the isolcpus= option, in order to prevent the load balancer from offloading in-band work to them is not only a good idea with PREEMPT_RT, but for any dual kernel configuration too.
+By doing so, having some random in-band work evicting cache lines on a CPU where real-time threads briefly sleep is less likely, increasing the odds of costly cache misses, which translates positively into the latency numbers you can get.</description>
+    </item>
+    
+    <item>
+      <title>ABI revisions</title>
+      <link>https://the-going.github.io/website/core/abi-revs/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://the-going.github.io/website/core/abi-revs/</guid>
+      <description>#abimap { width: 35%; margin-left: auto; margin-right: auto; } #abimap th { text-align: center; } #abimap td { text-align: center; } #abimap tr:nth-child(even) { background-color: #f2f2f2; }   Revision Purpose libevl release   26 Add socket interface. r21   25 Add latmus request for measuring in-band response time to synthetic interrupt latency. r21   24 Add proxy read side. r19   23 Add the Observable element, and thread observability.</description>
+    </item>
+    
+  </channel>
+</rss>

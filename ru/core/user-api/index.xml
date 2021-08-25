@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Using libevl on Xenomai 4</title>
+    <link>https://the-going.github.io/website/ru/core/user-api/</link>
+    <description>Recent content in Using libevl on Xenomai 4</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <copyright>Copyright 2021 - The Xenomai project.</copyright><atom:link href="https://the-going.github.io/website/ru/core/user-api/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>API revisions</title>
+      <link>https://the-going.github.io/website/ru/core/user-api/api-revs/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://the-going.github.io/website/ru/core/user-api/api-revs/</guid>
+      <description>You can obtain the current API revision of libevl either at compilation time using the value of the __EVL__ macro defined in the &amp;lt;evl/evl.h&amp;gt; main header file, or dynamically by calling evl_get_version().
+rev. 18 (libevl r26) Introduces the socket interface:
+  oob_recvmsg() to receive a message in out-of-band mode.
+  oob_sendmsg() to send a message in out-of-band mode.
+  The regular socket(2) call as extended by ABI 26 is capable of creating oob-capable sockets when receiving the SOCK_OOB type flag, so there is no EVL-specific call for this operation.</description>
+    </item>
+    
+  </channel>
+</rss>

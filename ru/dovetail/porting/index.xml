@@ -67,7 +67,7 @@ This is required to keep those helpers usable on data which might be accessed fr
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://the-going.github.io/website/ru/dovetail/porting/clocksource/</guid>
-      <description>Your autonomous core most likely needs a fast access to the current clock source from the out-of-band context, for reading precise timestamps which are in sync with the kernel&amp;rsquo;s idea of time. The best way to achieve this is by enabling the fast clock_gettime(3) helper in the vDSO support for the target CPU architecture. At least, you may want user-space tasks controlled by the core to have access to the POSIX-defined CLOCK_MONOTONIC and CLOCK_REALTIME clocks from the out-of-band context, using a vDSO call, with no execution and response time penalty involved in invoking an [in-band syscall] (/website/ru/dovetail/altsched/#inband-switch).</description>
+      <description>Your autonomous core most likely needs a fast access to the current clock source from the out-of-band context, for reading precise timestamps which are in sync with the kernel&amp;rsquo;s idea of time. The best way to achieve this is by enabling the fast clock_gettime(3) helper in the vDSO support for the target CPU architecture. At least, you may want user-space tasks controlled by the core to have access to the POSIX-defined CLOCK_MONOTONIC and CLOCK_REALTIME clocks from the out-of-band context, using a vDSO call, with no execution and response time penalty involved in invoking an [in-band syscall] (/ru/dovetail/altsched/#inband-switch).</description>
     </item>
     
     <item>
@@ -76,7 +76,7 @@ This is required to keep those helpers usable on data which might be accessed fr
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://the-going.github.io/website/ru/dovetail/porting/syscall/</guid>
-      <description>Last modified: Wed, 25 Aug 2021 15:28:35 MSK</description>
+      <description>Последнее изменение: Wed, 25 Aug 2021 15:28:35 MSK</description>
     </item>
     
     <item>
@@ -97,7 +97,7 @@ This is required to keep those helpers usable on data which might be accessed fr
       <guid>https://the-going.github.io/website/ru/dovetail/porting/misc/</guid>
       <description>printk() support printk() may be called by out-of-band code safely, without encurring extra latency. The output is conveyed like NMI-originated output, which involves some delay until the in-band code resumes, and the console driver(s) can handle it.
 Tracing Tracepoints can be traversed by out-of-band code safely. Dynamic tracing is available to a kernel running the pipelined interrupt model too.
- Last modified: Wed, 25 Aug 2021 15:28:35 MSK</description>
+ Последнее изменение: Wed, 25 Aug 2021 15:28:35 MSK</description>
     </item>
     
     <item>

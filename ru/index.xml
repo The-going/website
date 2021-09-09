@@ -9,17 +9,6 @@
     <copyright>Copyright 2021 - The Xenomai project.</copyright>
     <lastBuildDate>Sat, 16 Feb 2019 16:10:44 +0100</lastBuildDate><atom:link href="https://the-going.github.io/website/ru/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Building EVL</title>
-      <link>https://the-going.github.io/website/ru/core/build-steps/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://the-going.github.io/website/ru/core/build-steps/</guid>
-      <description>Построение EVL из исходного кода   Процесс сборки. Сборка EVL из исходного кода - это процесс в два этапа: мы должны собрать ядро Linux включив EVL ядро, и библиотеку реализующую API пользователя для этого ядра - т.е. libevl - с использованием соответствующего инструментария. Эти шаги могут выполняться в любом порядке. Результатом этого процесса является:
-  образ ядра Linux с изображением Dovetail и ядром EVL поверх него.
-  the libevl.</description>
-    </item>
-    
-    <item>
       <title>DMA</title>
       <link>https://the-going.github.io/website/ru/core/oob-drivers/dma/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -27,6 +16,17 @@
       <guid>https://the-going.github.io/website/ru/core/oob-drivers/dma/</guid>
       <description>A cornerstone of many real-time capable drivers which can process requests from the out-of-band stage is DMA support. Being able to offload data transfers to a DMA unit goes a long way toward implementing efficient acquisition loops, especially if they have to run at high frequency, sparing precious CPU cycles.
 In order to support out-of-band transactions, a DMA controller (e.g. bcm2835-dma, or imx-sdma) must include Dovetail-specific changes. Since DMA drivers are commonly based on the virtual channel layer (aka virt-dma), Dovetail adds the required changes to this layer in order to cope with execution from the out-of-band stage.</description>
+    </item>
+    
+    <item>
+      <title>Описание процесса сборки ядра и библиотеки</title>
+      <link>https://the-going.github.io/website/ru/core/build-steps/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://the-going.github.io/website/ru/core/build-steps/</guid>
+      <description>Построение EVL из исходного кода   Процесс сборки. Сборка EVL из исходного кода - это процесс в два этапа: мы должны собрать ядро Linux включив EVL ядро, и библиотеку реализующую API пользователя для этого ядра - т.е. libevl - с использованием соответствующего инструментария. Эти шаги могут выполняться в любом порядке. Результатом этого процесса является:
+  образ ядра Linux с изображением Dovetail и ядром EVL поверх него.
+  the libevl.</description>
     </item>
     
     <item>
@@ -229,7 +229,7 @@ This is required to keep those helpers usable on data which might be accessed fr
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://the-going.github.io/website/ru/dovetail/porting/clocksource/</guid>
-      <description>Your autonomous core most likely needs a fast access to the current clock source from the out-of-band context, for reading precise timestamps which are in sync with the kernel&amp;rsquo;s idea of time. The best way to achieve this is by enabling the fast clock_gettime(3) helper in the vDSO support for the target CPU architecture. At least, you may want user-space tasks controlled by the core to have access to the POSIX-defined CLOCK_MONOTONIC and CLOCK_REALTIME clocks from the out-of-band context, using a vDSO call, with no execution and response time penalty involved in invoking an [in-band syscall] (/website/ru/dovetail/altsched/#inband-switch).</description>
+      <description>Your autonomous core most likely needs a fast access to the current clock source from the out-of-band context, for reading precise timestamps which are in sync with the kernel&amp;rsquo;s idea of time. The best way to achieve this is by enabling the fast clock_gettime(3) helper in the vDSO support for the target CPU architecture. At least, you may want user-space tasks controlled by the core to have access to the POSIX-defined CLOCK_MONOTONIC and CLOCK_REALTIME clocks from the out-of-band context, using a vDSO call, with no execution and response time penalty involved in invoking an [in-band syscall] (/ru/dovetail/altsched/#inband-switch).</description>
     </item>
     
     <item>
@@ -238,7 +238,7 @@ This is required to keep those helpers usable on data which might be accessed fr
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://the-going.github.io/website/ru/dovetail/porting/syscall/</guid>
-      <description>Last modified: Wed, 25 Aug 2021 15:28:35 MSK</description>
+      <description>Последнее изменение: Wed, 25 Aug 2021 15:28:35 MSK</description>
     </item>
     
     <item>
@@ -259,7 +259,7 @@ This is required to keep those helpers usable on data which might be accessed fr
       <guid>https://the-going.github.io/website/ru/dovetail/porting/misc/</guid>
       <description>printk() support printk() may be called by out-of-band code safely, without encurring extra latency. The output is conveyed like NMI-originated output, which involves some delay until the in-band code resumes, and the console driver(s) can handle it.
 Tracing Tracepoints can be traversed by out-of-band code safely. Dynamic tracing is available to a kernel running the pipelined interrupt model too.
- Last modified: Wed, 25 Aug 2021 15:28:35 MSK</description>
+ Последнее изменение: Wed, 25 Aug 2021 15:28:35 MSK</description>
     </item>
     
     <item>
@@ -331,9 +331,9 @@ The runtime overhead induced by enabling these options is marginal. Just don&amp
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://the-going.github.io/website/ru/devprocess/</guid>
-      <description>Xenomai 4 development process The Xenomai 4 project works on three software components:
-  The Dovetail interface, which introduces a high-priority execution stage into the linux kernel logic, on which a functionally-independent companion software core may receive interrupts and run threads.
-  A compact and SMP-scalable real-time core - aka the EVL core - leveraging Dovetail&amp;rsquo;s capabilities, which is intended to be the reference implementation for other Dovetail-based companion cores.</description>
+      <description>Процесс разработки Xenomai 4 Проект Xenomai 4 работает над тремя программными компонентами:
+  Интерфейс Ласточкин хвост который вводит этап выполнения с высоким приоритетом в логику ядра Linux, на котором функционально независимое сопутствующее программное ядро может получать прерывания и запускать потоки.
+  Компактное и SMP-масштабируемое ядро реального времени - оно же ядро EVL - использование возможностей &amp;ldquo;Ласточкиного хвоста&amp;rdquo;, который предназначен для эталонной реализации для других сопутствующих ядер на основе &amp;ldquo;Ласточкиного хвоста&amp;rdquo;.</description>
     </item>
     
     <item>

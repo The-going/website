@@ -67,7 +67,7 @@ This is required to keep those helpers usable on data which might be accessed fr
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://the-going.github.io/website/dovetail/porting/clocksource/</guid>
-      <description>Your autonomous core most likely needs a fast access to the current clock source from the out-of-band context, for reading precise timestamps which are in sync with the kernel&amp;rsquo;s idea of time. The best way to achieve this is by enabling the fast clock_gettime(3) helper in the vDSO support for the target CPU architecture. At least, you may want user-space tasks controlled by the core to have access to the POSIX-defined CLOCK_MONOTONIC and CLOCK_REALTIME clocks from the out-of-band context, using a vDSO call, with no execution and response time penalty involved in invoking an [in-band syscall] (/website/dovetail/altsched/#inband-switch).</description>
+      <description>Your autonomous core most likely needs a fast access to the current clock source from the out-of-band context, for reading precise timestamps which are in sync with the kernel&amp;rsquo;s idea of time. The best way to achieve this is by enabling the fast clock_gettime(3) helper in the vDSO support for the target CPU architecture. At least, you may want user-space tasks controlled by the core to have access to the POSIX-defined CLOCK_MONOTONIC and CLOCK_REALTIME clocks from the out-of-band context, using a vDSO call, with no execution and response time penalty involved in invoking an [in-band syscall] (/dovetail/altsched/#inband-switch).</description>
     </item>
     
     <item>
